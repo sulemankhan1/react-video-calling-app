@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useSocket } from "../context/SocketProvider";
 
 const LobbyScreen = () => {
-  const [email, setEmail] = useState("");
-  const [room, setRoom] = useState("");
+  const [email, setEmail] = useState("suleman@email.com");
+  const [room, setRoom] = useState("1");
 
   const socket = useSocket();
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const LobbyScreen = () => {
   const handleSubmitForm = useCallback(
     (e) => {
       e.preventDefault();
-      console.log("handleSubmitForm: ", { email, room });
+      console.log("handleSubmitForm: ", socket);
       socket.emit("room:join", { email, room });
     },
     [email, room, socket]
