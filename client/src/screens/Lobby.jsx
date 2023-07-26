@@ -12,6 +12,7 @@ const LobbyScreen = () => {
   const handleSubmitForm = useCallback(
     (e) => {
       e.preventDefault();
+      console.log("handleSubmitForm: ", { email, room });
       socket.emit("room:join", { email, room });
     },
     [email, room, socket]
@@ -52,7 +53,7 @@ const LobbyScreen = () => {
           onChange={(e) => setRoom(e.target.value)}
         />
         <br />
-        <button>Join</button>
+        <button type="submit">Join</button>
       </form>
     </div>
   );
